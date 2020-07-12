@@ -4,9 +4,22 @@ def block():
         pass
 
 def _disassemble(B1, B2, B3):
+    offset = 1
     if B1 == 0xa0:
+
         print(f"$ {'0xa0'} LDY #{B2}")
-    return 1
+        offset += 1
+
+    elif B1 == 0xc0:
+        print(f"$ {'0xcO'} CPY #{B2}")
+        offset += 1
+
+    elif B1 == 0xe0:
+        print(f"$ {'0xe0'} CPX #{B2}")
+        offset += 1
+    else:
+        pass
+    return offset
 
 def disassembleNESOp(buffer):
 
